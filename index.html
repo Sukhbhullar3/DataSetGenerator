@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Configuration App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="sidebar-btn" onclick="showHomePage()">Home</button>
+            <h3>Process Configuration</h3>
+            <button class="sidebar-btn" onclick="showProcessConfig()">Process Variables</button>
+            <button class="sidebar-btn" onclick="showProcessAreaDescriptions()">Process Area Descriptions</button>
+            <h3>Input Configuration</h3>
+            <button class="sidebar-btn">Input Variables</button>
+            <button class="sidebar-btn">Input Validations</button>
+            <h3>State Configuration</h3>
+            <button class="sidebar-btn">State Variables</button>
+            <h3>Output Configuration</h3>
+            <button class="sidebar-btn">Output Variables</button>
+            <button class="sidebar-btn">Lab Variables</button>
+            <h3>Generate Data</h3>
+            <button class="sidebar-btn">Generate</button>
+        </div>
+
+        <!-- Home Page -->
+        <div id="home-page" class="main-content">
+            <h2>Dataset Generator, Pat Dixon (Pulmac Systems), Alia Rezvi, 2023</h2>
+            <button class="load-btn">Load Configurations</button>
+        </div>
+
+        <!-- Process Configuration Page -->
+        <div id="process-config-page" class="main-content" style="display: none;">
+            <h2>Process Configuration</h2>
+            <form id="processConfigForm">
+                <div class="form-row">
+                    <div>
+                        <label for="startDate">Start Date</label>
+                        <input type="text" id="startDate" placeholder="mm/dd/yy">
+                    </div>
+                    <div>
+                        <label for="pulpEyePeriod">PulpEye Period (sec)</label>
+                        <input type="text" id="pulpEyePeriod">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="processPeriod">Process Period (sec)</label>
+                        <input type="text" id="processPeriod">
+                    </div>
+                    <div>
+                        <label for="uncoupledMoves">Uncoupled Moves</label>
+                        <input type="text" id="uncoupledMoves">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="qcsPeriod">QCS Period (sec)</label>
+                        <input type="text" id="qcsPeriod">
+                    </div>
+                    <div>
+                        <label for="trim">Trim (ft)</label>
+                        <input type="text" id="trim">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="labPeriod">Lab Period (sec)</label>
+                        <input type="text" id="labPeriod">
+                    </div>
+                    <div>
+                        <label for="draw">Draw</label>
+                        <input type="text" id="draw">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="addedSettle">Added Settle (sec)</label>
+                        <input type="text" id="addedSettle">
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <!-- Process Area Descriptions Page -->
+        <div id="process-area-page" class="main-content" style="display: none;">
+            <h2>Process Area Descriptions</h2>
+            <table id="areaTable" border="1" style="width: 80%; background-color: #add8e6; text-align: center;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Deadtime Reel</th>
+                        <th>Lag 1 Reel</th>
+                        <th>Lag 2 Reel</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            <div class="form-row">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                </div>
+                <div>
+                    <label for="deadtime">Deadtime Reel (min)</label>
+                    <input type="text" id="deadtime">
+                </div>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label for="lag1">Lag 1 Reel (min)</label>
+                    <input type="text" id="lag1">
+                </div>
+                <div>
+                    <label for="lag2">Lag 2 Reel (min)</label>
+                    <input type="text" id="lag2">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="add-row" onclick="addRow()">Add row</button>
+                <button class="delete-row" onclick="deleteRow()">Delete row</button>
+                <button class="submit-btn" onclick="submitTable()">Submit</button>
+                <button class="clear-table" onclick="clearTable()">Clear table</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
